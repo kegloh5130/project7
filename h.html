@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+</head>
+<body>
+    
+<section class="flex flex-col items-center p-32">
+    <img src="${movieTemplate.Poster}"/>
+    <section>
+        <h1>${movieTemplate.Title}</h1>
+    </section>
+
+    <section class="flex flex-row justify-around mx-auto">
+
+        <section class="p-15 flex flex-col items-center">
+            <h3>Year</h3>
+            <p>${movieTemplate.Year}</p> 
+        </section>
+
+        <section class="p-15 flex flex-col items-center">
+            <h3>Rating</h3>
+            <p>${movieTemplate.Ratings[1]}</p>
+        </section>
+
+        <section class="p-15 flex flex-col items-center">
+            <h3>Genre</h3>
+            <p>${movieTemplate.Genre}</p>
+        </section>
+
+    </section>
+
+    <section class=" flex flex-row item">
+        <h3>Directed by ${movieTemplate.Directer}</h3>
+    </section>
+    <section>
+        <p>${movieTemplate.Plot}</p>
+    </section>
+    <section>
+        <h3>Actors</h3>
+    </section>
+    <section>
+        <p>${movieTemplate.Actors}</p>
+    </section>
+
+</section>
+
+
+
+
+
+
+</body>
+</html>
