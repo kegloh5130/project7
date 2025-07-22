@@ -13,12 +13,12 @@ const TheData = async (userSearch) =>{
 
 const root = document.querySelector('.auto');
 
-root.innerHTML = `  <section class="is-flex is-flex-direction-column is-align-items-center has-text-white"><h1>Search Your Movie</h1>
+root.innerHTML = `  <section id="int" class="is-flex is-flex-direction-column is-align-items-center has-text-white"><h1>Search Your Movie</h1>
                     <input class = "input"/>
                     </section>
                     <section class = "dropdown">
                         <section class = "dropdown-menu">
-                            <section class = "dropdown-content results"></section>
+                            <section id="drops" class = "dropdown-content results"></section>
                         </section>
                     </section>`;
 
@@ -54,7 +54,7 @@ const onInput =  async Event =>{
         section.classList.add('is-flex-direction-column')
         section.classList.add('is-align-items-center')
         section.classList.add('is-justify-content-center')
-        section.innerHTML = `<img src="${imgSrc}"/>  
+        section.innerHTML = `<img class="image is-1by1" src="${imgSrc}"/>  
             ${movie.Title}`;
         section.addEventListener('click', ()=>{
             dropdown.classList.remove('is-active');
@@ -94,40 +94,40 @@ const movieTemplate = (moviedetail)=>{
     return `
     <img src="${moviedetail.Poster}"/>
     <section>
-        <h1>${moviedetail.Title}</h1>
+        <h1 class="has-text-white is-size-3 has-text-weight-bold is-family-primary">${moviedetail.Title}</h1>
     </section>
-    <section class="is-flex is-flex-direction-row is-justify-content-space-around">
+    <section id="ss">
         
-        <section class="p-6 m-4 is-flex is-flex-direction-column is-align-items-center ">
+        <section id="test" class="p-5 border-collapse: inherit m-4 is-flex is-flex-direction-column is-align-items-center has-background-white has-text-black ">
             <h3>Year</h3>
             <p>${moviedetail.Year}</p> 
         </section>
 
-        <section class="p-6 m-4 is-flex is-flex-direction-column is-align-items-center">
+        <section class="p-5 m-4 is-flex is-flex-direction-column is-align-items-center has-background-white has-text-black">
             <h3>Rating</h3>
-            <p>${moviedetail.Ratings[1]['Value']}</p>
+            <p>${moviedetail.Ratings}</p>
         </section>
 
-        <section class="p-6 m-4 is-flex is-flex-direction-column is-align-items-center">
+        <section class="p-5 m-4 is-flex is-flex-direction-column is-align-items-center has-background-white has-text-black">
             <h3>Genre</h3>
             <p>${moviedetail.Genre}</p>
         </section>
 
     </section>
 
-    <section class="mb-2">
-        <h3>Directed by ${moviedetail.Director}</h3>
+    <section class="mb-2 mt-2">
+        <h3 class="has-text-white is-size-4 has-text-weight-bold">Directed by ${moviedetail.Director}</h3>
     </section>
 
-    <section>
-        <p class="has-text-centered">${moviedetail.Plot}</p>
+    <section id="s3" class="p-2">
+        <p>${moviedetail.Plot}</p>
     </section>
 
     <section class="mt-2 mb-2">
-        <h3>Actors</h3>
+        <h3 class="has-text-white is-size-4 has-text-weight-bold is-family-secondary">Actors</h3>
     </section>
 
-    <section>
+    <section id="s4">
         <p>${moviedetail.Actors}</p>
     </section>`;
 }
