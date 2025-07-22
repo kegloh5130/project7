@@ -8,7 +8,7 @@ html{
 
 #vid{
     position: absolute;
-    width: 100%;
+    width: 300%;
     left: 0;
     z-index: -1;
     height: auto;
@@ -30,6 +30,7 @@ html{
 #int input{
     background: transparent;
     color: white;
+    border-width: 2px;
 }
 
 #drops{
