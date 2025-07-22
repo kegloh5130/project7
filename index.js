@@ -10,6 +10,7 @@ const TheData = async (userSearch) =>{
     }
     return response.data.Search;
 };
+// First request to API
 
 const root = document.querySelector('.auto');
 
@@ -36,7 +37,7 @@ const debounce = (func, delay = 1000) =>{
         }, 1000)
     }
 }
-
+// Input area with delay so that requests arent sent every time a user enters a letter. The delay is set to one second
 
 const onInput =  async Event =>{
     const movies =   await TheData(Event.target.value);
@@ -64,6 +65,8 @@ const onInput =  async Event =>{
         resultswrapper.appendChild(section);
     }   
 }
+// The container for the results after user input
+
 input.addEventListener('input', debounce(onInput))
 
 document.addEventListener('click', Event =>{
@@ -71,7 +74,7 @@ document.addEventListener('click', Event =>{
         dropdown.classList.remove('is-active');
     }
 });
-
+//  Event listener that removes the drop down when user clicks on areas outside of it
 const MovieSelect = async movie =>{
      const response = await axios.get(' http://www.omdbapi.com/', {
         params: {
@@ -83,13 +86,10 @@ const MovieSelect = async movie =>{
    document.querySelector('#Popup').classList.add('is-flex');
    document.querySelector('#Popup').classList.add('is-flex-direction-column');
    document.querySelector('#Popup').classList.add('is-align-items-center');
-   document.querySelector('#Popup').classList.add('mt-6');
-   document.querySelector('#Popup').classList.add('p-6');
-  
-
-    
+//    document.querySelector('#Popup').classList.add('mt-6');
+//    document.querySelector('#Popup').classList.add('p-6');
 };
-
+// Second request to api to obtain information about user's specific movie(after they click the movie that they are looking for)
 const movieTemplate = (moviedetail)=>{
     return `
     <img src="${moviedetail.Poster}"/>
@@ -105,7 +105,7 @@ const movieTemplate = (moviedetail)=>{
 
         <section class="p-5 m-4 is-flex is-flex-direction-column is-align-items-center has-background-white has-text-black">
             <h3>Rating</h3>
-            <p>${moviedetail.Ratings}</p>
+            <p>${moviedetail.Ratings[0]['Value']}</p>
         </section>
 
         <section class="p-5 m-4 is-flex is-flex-direction-column is-align-items-center has-background-white has-text-black">
@@ -131,4 +131,5 @@ const movieTemplate = (moviedetail)=>{
         <p>${moviedetail.Actors}</p>
     </section>`;
 }
+// html content after user clicks on specific movie
 
