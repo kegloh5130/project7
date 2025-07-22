@@ -1,5 +1,5 @@
 const TheData = async (userSearch) =>{
-    const response = await axios.get(' http://www.omdbapi.com/', {
+    const response = await axios.get(' https://www.omdbapi.com/', {
         params: {
             apikey: 'a7c67545',
             s: userSearch
@@ -76,7 +76,7 @@ document.addEventListener('click', Event =>{
 });
 //  Event listener that removes the drop down when user clicks on areas outside of it
 const MovieSelect = async movie =>{
-     const response = await axios.get(' http://www.omdbapi.com/', {
+     const response = await axios.get(' https://www.omdbapi.com/', {
         params: {
             apikey: 'a7c67545',
             i: movie.imdbID
